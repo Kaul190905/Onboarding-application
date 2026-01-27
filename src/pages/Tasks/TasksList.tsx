@@ -38,7 +38,7 @@ export const TasksList = () => {
     return (
         <div className="space-y-6">
             {/* Header & Filters */}
-            <div className="bg-white rounded-2xl border border-slate-100 p-6">
+            <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6">
                 <div className="flex flex-col lg:flex-row lg:items-center gap-4">
                     {/* Search */}
                     <div className="relative flex-1">
@@ -62,7 +62,7 @@ export const TasksList = () => {
                                     onClick={() => setStatusFilter(option.value as typeof statusFilter)}
                                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors
                                         ${statusFilter === option.value
-                                            ? 'bg-white text-violet-600 shadow-sm'
+                                            ? 'bg-slate-50 text-violet-600 shadow-sm'
                                             : 'text-slate-600 hover:text-slate-900'
                                         }`}
                                 >
@@ -75,7 +75,7 @@ export const TasksList = () => {
             </div>
 
             {/* Results */}
-            <div className="bg-white rounded-2xl border border-slate-100 p-6">
+            <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6">
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-lg font-bold text-slate-900">
                         {statusFilter === 'all' ? 'All Tasks' : statusOptions.find(o => o.value === statusFilter)?.label}
@@ -93,4 +93,5 @@ export const TasksList = () => {
         </div>
     );
 };
+
 

@@ -58,7 +58,7 @@ export const CreateTask = () => {
     if (success) {
         return (
             <div className="max-w-xl mx-auto">
-                <div className="bg-white rounded-2xl border border-slate-100 p-8 text-center">
+                <div className="bg-slate-50 rounded-2xl border border-slate-100 p-8 text-center">
                     <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <CheckCircle2 className="w-8 h-8 text-emerald-600" />
                     </div>
@@ -81,7 +81,7 @@ export const CreateTask = () => {
             </button>
 
             {/* Form card */}
-            <div className="bg-white rounded-2xl border border-slate-100 overflow-hidden">
+            <div className="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
                 <div className="p-6 lg:p-8 border-b border-slate-100">
                     <div className="flex items-center gap-3 mb-2">
                         <FileText className="w-6 h-6 text-violet-600" />
@@ -103,7 +103,7 @@ export const CreateTask = () => {
                             onChange={handleChange}
                             required
                             placeholder="e.g., Mathematics Mid-Term Exam"
-                            className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
                         />
                     </div>
 
@@ -119,7 +119,7 @@ export const CreateTask = () => {
                             required
                             rows={4}
                             placeholder="Describe the Task, duration, number of questions, topics covered..."
-                            className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all resize-none"
+                            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all resize-none"
                         />
                     </div>
 
@@ -135,7 +135,7 @@ export const CreateTask = () => {
                                 value={formData.assignedTo}
                                 onChange={handleChange}
                                 required
-                                className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all appearance-none"
+                                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all appearance-none"
                             >
                                 <option value="">Select a student</option>
                                 {availableStudents.map(student => (
@@ -160,7 +160,7 @@ export const CreateTask = () => {
                                     onChange={handleChange}
                                     required
                                     min={new Date().toISOString().split('T')[0]}
-                                    className="w-full pl-12 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                                    className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
                                 />
                             </div>
                         </div>
@@ -191,4 +191,5 @@ export const CreateTask = () => {
         </div>
     );
 };
+
 

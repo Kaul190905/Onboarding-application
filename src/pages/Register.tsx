@@ -1,52 +1,39 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import { Mail, Lock, Eye, EyeOff, AlertCircle, ArrowRight } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, ArrowRight, User } from 'lucide-react';
 
-export const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+export const Register = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+        role: 'student'
+    });
     const [showPassword, setShowPassword] = useState(false);
-    const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError('');
         setIsLoading(true);
 
-        // Simulate a brief loading state
-        await new Promise(resolve => setTimeout(resolve, 500));
-
-        const result = login(email, password);
-
-        if (result.success) {
-            navigate('/dashboard');
-        } else {
-            setError(result.error || 'Login failed');
-        }
+        // Simulate registration
+        await new Promise(resolve => setTimeout(resolve, 1500));
 
         setIsLoading(false);
+        navigate('/login');
     };
 
-    // Demo credentials for easy testing
-    const demoCredentials = [
-        { role: 'Admin', email: 'sarah.mitchell@school.edu', password: 'admin123' },
-        { role: 'Teacher', email: 'james.wilson@school.edu', password: 'teacher123' },
-        { role: 'Student', email: 'alice.johnson@student.edu', password: 'student123' },
-    ];
-
-    const fillCredentials = (demoEmail: string, demoPassword: string) => {
-        setEmail(demoEmail);
-        setPassword(demoPassword);
-        setError('');
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }));
     };
 
     return (
         <div className="min-h-screen bg-slate-50 flex">
-            {/* Left side - Brand panel with gradient matching logo */}
+            {/* Left side - Brand panel */}
             <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-violet-600 via-violet-500 to-purple-500 p-12 flex-col justify-between">
                 <div>
                     <div className="flex items-center gap-3 mb-16">
@@ -80,7 +67,7 @@ export const Login = () => {
                 </div>
             </div>
 
-            {/* Right side - Login form */}
+            {/* Right side - Register form */}
             <div className="flex-1 flex items-center justify-center p-6 lg:p-12">
                 <div className="w-full max-w-md">
                     {/* Mobile logo */}
@@ -93,18 +80,29 @@ export const Login = () => {
                     </div>
 
                     <div className="mb-8">
-                        <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-2">Welcome back</h2>
-                        <p className="text-slate-600">Sign in to access your Tasks</p>
+                        <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-2">Create an account</h2>
+                        <p className="text-slate-600">Enter your details to get started</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-5">
-                        {/* Error message */}
-                        {error && (
-                            <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-100 rounded-xl text-red-600">
-                                <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                                <span className="text-sm">{error}</span>
+                        {/* Name field */}
+                        <div>
+                            <label className="block text-sm font-medium text-slate-700 mb-2">
+                                Full Name
+                            </label>
+                            <div className="relative">
+                                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
+                                    placeholder="Enter your full name"
+                                    className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                                />
                             </div>
-                        )}
+                        </div>
 
                         {/* Email field */}
                         <div>
@@ -115,13 +113,30 @@ export const Login = () => {
                                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                                 <input
                                     type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     required
                                     placeholder="Enter your email"
                                     className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
                                 />
                             </div>
+                        </div>
+
+                        {/* Role field */}
+                        <div>
+                            <label className="block text-sm font-medium text-slate-700 mb-2">
+                                I am a
+                            </label>
+                            <select
+                                name="role"
+                                value={formData.role}
+                                onChange={handleChange}
+                                className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all appearance-none"
+                            >
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                            </select>
                         </div>
 
                         {/* Password field */}
@@ -133,10 +148,11 @@ export const Login = () => {
                                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                                 <input
                                     type={showPassword ? 'text' : 'password'}
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    name="password"
+                                    value={formData.password}
+                                    onChange={handleChange}
                                     required
-                                    placeholder="Enter your password"
+                                    placeholder="Create a password"
                                     className="w-full pl-12 pr-12 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
                                 />
                                 <button
@@ -149,7 +165,6 @@ export const Login = () => {
                             </div>
                         </div>
 
-                        {/* Submit button */}
                         <button
                             type="submit"
                             disabled={isLoading}
@@ -158,50 +173,29 @@ export const Login = () => {
                             {isLoading ? (
                                 <>
                                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                                    Signing in...
+                                    Creating account...
                                 </>
                             ) : (
                                 <>
-                                    Sign in
+                                    Create account
                                     <ArrowRight className="w-5 h-5" />
                                 </>
                             )}
                         </button>
 
-                        {/* Registration Link */}
                         <div className="text-center pt-2">
                             <p className="text-slate-600">
-                                Don't have an account?{' '}
+                                Already have an account?{' '}
                                 <button
                                     type="button"
-                                    onClick={() => navigate('/register')}
+                                    onClick={() => navigate('/login')}
                                     className="text-violet-600 font-semibold hover:text-violet-700 hover:underline transition-colors"
                                 >
-                                    Create new account
+                                    Sign in
                                 </button>
                             </p>
                         </div>
                     </form>
-
-                    {/* Demo credentials */}
-                    <div className="mt-8 pt-8 border-t border-slate-200">
-                        <p className="text-sm text-slate-500 mb-4 text-center">Quick access with demo accounts</p>
-                        <div className="grid gap-2">
-                            {demoCredentials.map((demo) => (
-                                <button
-                                    key={demo.role}
-                                    onClick={() => fillCredentials(demo.email, demo.password)}
-                                    className="flex items-center justify-between p-3 bg-slate-50 hover:bg-violet-50 border border-slate-200 hover:border-violet-200 rounded-xl text-left transition-colors group"
-                                >
-                                    <div>
-                                        <span className="text-sm font-medium text-slate-900">{demo.role}</span>
-                                        <p className="text-xs text-slate-500">{demo.email}</p>
-                                    </div>
-                                    <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-violet-600 transition-colors" />
-                                </button>
-                            ))}
-                        </div>
-                    </div>
 
                     {/* Footer */}
                     <p className="mt-8 text-center text-sm text-slate-400">
@@ -212,5 +206,3 @@ export const Login = () => {
         </div>
     );
 };
-
-

@@ -40,7 +40,7 @@ export const StudentDashboard = () => {
     return (
         <div className="space-y-8">
             {/* Welcome Card with Progress */}
-            <div className="bg-white rounded-2xl border border-slate-100 p-6 lg:p-8">
+            <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6 lg:p-8">
                 <div className="flex flex-col lg:flex-row lg:items-center gap-6">
                     {/* Progress Circle */}
                     <div className="relative w-28 h-28 flex-shrink-0">
@@ -109,7 +109,7 @@ export const StudentDashboard = () => {
                 {stats.map((stat) => (
                     <div
                         key={stat.label}
-                        className="bg-white rounded-xl border border-slate-100 p-4 hover:shadow-md transition-shadow"
+                        className="bg-slate-50 rounded-xl border border-slate-100 p-4 hover:shadow-md transition-shadow"
                     >
                         <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3
                             ${stat.color === 'emerald' ? 'bg-emerald-50' :
@@ -132,7 +132,7 @@ export const StudentDashboard = () => {
             <div className="grid lg:grid-cols-3 gap-6">
                 {/* Pending Tasks */}
                 <div className="lg:col-span-2">
-                    <div className="bg-white rounded-2xl border border-slate-100 p-6">
+                    <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6">
                         <div className="flex items-center justify-between mb-6">
                             <h2 className="text-lg font-bold text-slate-900">Pending Tasks</h2>
                             <span className="text-sm text-slate-500">{pendingTasks.length} remaining</span>
@@ -142,7 +142,7 @@ export const StudentDashboard = () => {
                 </div>
 
                 {/* Completed Tasks */}
-                <div className="bg-white rounded-2xl border border-slate-100 p-6">
+                <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6">
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-lg font-bold text-slate-900">Completed</h2>
                         <Trophy className="w-5 h-5 text-emerald-500" />
@@ -172,4 +172,5 @@ export const StudentDashboard = () => {
         </div>
     );
 };
+
 

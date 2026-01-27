@@ -49,7 +49,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, showAssignee = false, 
     return (
         <div
             onClick={() => navigate(`/tasks/${task.id}`)}
-            className="group bg-white rounded-xl border border-slate-100 p-5 cursor-pointer hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+            className="group bg-slate-50 rounded-xl border border-slate-100 p-5 cursor-pointer hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
         >
             {/* Header */}
             <div className="flex items-start justify-between gap-3 mb-3">
@@ -118,4 +118,5 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, showAssignee = false, 
         </div>
     );
 };
+
 

@@ -33,7 +33,7 @@ export const TeacherDashboard = () => {
     return (
         <div className="space-y-8">
             {/* Welcome Card */}
-            <div className="bg-white rounded-2xl border border-slate-100 p-6 lg:p-8">
+            <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6 lg:p-8">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                     <div>
                         <h1 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-2">
@@ -58,7 +58,7 @@ export const TeacherDashboard = () => {
                 {stats.map((stat) => (
                     <div
                         key={stat.label}
-                        className="bg-white rounded-xl border border-slate-100 p-4 hover:shadow-md transition-shadow"
+                        className="bg-slate-50 rounded-xl border border-slate-100 p-4 hover:shadow-md transition-shadow"
                     >
                         <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-3
                             ${stat.color === 'emerald' ? 'bg-emerald-50' : stat.color === 'amber' ? 'bg-amber-50' : 'bg-violet-50'}`}
@@ -76,7 +76,7 @@ export const TeacherDashboard = () => {
             {/* Main Content Grid */}
             <div className="grid lg:grid-cols-3 gap-6">
                 {/* My Students */}
-                <div className="bg-white rounded-2xl border border-slate-100 p-6">
+                <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6">
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-lg font-bold text-slate-900">Student Progress</h2>
                         <Users className="w-5 h-5 text-slate-400" />
@@ -115,7 +115,7 @@ export const TeacherDashboard = () => {
 
                 {/* Pending Tasks */}
                 <div className="lg:col-span-2">
-                    <div className="bg-white rounded-2xl border border-slate-100 p-6">
+                    <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6">
                         <div className="flex items-center justify-between mb-6">
                             <h2 className="text-lg font-bold text-slate-900">Pending Tasks</h2>
                             <button className="text-sm text-violet-600 hover:text-violet-700 font-medium">
@@ -129,4 +129,5 @@ export const TeacherDashboard = () => {
         </div>
     );
 };
+
 

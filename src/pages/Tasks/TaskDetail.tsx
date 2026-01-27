@@ -67,7 +67,7 @@ export const TaskDetail = () => {
             </button>
 
             {/* Main card */}
-            <div className="bg-white rounded-2xl border border-slate-100 overflow-hidden">
+            <div className="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
                 {/* Header */}
                 <div className="p-6 lg:p-8 border-b border-slate-100">
                     <div className="flex items-start justify-between gap-4 mb-4">
@@ -176,4 +176,5 @@ export const TaskDetail = () => {
         </div>
     );
 };
+
 

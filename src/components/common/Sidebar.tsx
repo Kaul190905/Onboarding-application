@@ -109,7 +109,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed })
             {/* Collapse button - desktop only */}
             <button
                 onClick={() => setIsCollapsed(!isCollapsed)}
-                className="hidden lg:flex absolute -right-3 top-20 w-6 h-6 bg-white border border-slate-200 rounded-full items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-50 shadow-sm transition-colors"
+                className="hidden lg:flex absolute -right-3 top-20 w-6 h-6 bg-slate-50 border border-slate-200 rounded-full items-center justify-center text-slate-400 hover:text-slate-600 hover:bg-slate-50 shadow-sm transition-colors"
             >
                 {isCollapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
             </button>
@@ -121,7 +121,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed })
             {/* Mobile menu button */}
             <button
                 onClick={() => setIsMobileOpen(!isMobileOpen)}
-                className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white border border-slate-200 rounded-xl shadow-sm"
+                className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-slate-50 border border-slate-200 rounded-xl shadow-sm"
             >
                 {isMobileOpen ? <X className="w-5 h-5 text-slate-600" /> : <Menu className="w-5 h-5 text-slate-600" />}
             </button>
@@ -138,7 +138,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed })
             <aside
                 className={`
                     fixed lg:static inset-y-0 left-0 z-40
-                    flex flex-col bg-white border-r border-slate-100
+                    flex flex-col bg-slate-50 border-r border-slate-100
                     transition-all duration-300 ease-out
                     ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
                     ${isCollapsed ? 'w-16' : 'w-64'}
@@ -149,4 +149,5 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed })
         </>
     );
 };
+
 

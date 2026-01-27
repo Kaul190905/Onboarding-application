@@ -12,7 +12,7 @@
   }
 
   body {
-    @apply bg-white text-slate-900;
+    @apply bg-slate-100 text-slate-900;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
   }
@@ -49,7 +49,7 @@
 
   /* Primary button - Violet theme */
   .btn-primary {
-    @apply px-8 py-4 bg-violet-600 text-white font-semibold rounded-xl;
+    @apply px-8 py-4 bg-violet-600 text-slate-50 font-semibold rounded-xl;
     @apply hover:bg-violet-700 focus:ring-4 focus:ring-violet-200;
     @apply transition-all duration-200 ease-in-out;
     @apply shadow-sm hover:shadow-md;
@@ -57,26 +57,26 @@
 
   /* Secondary button */
   .btn-secondary {
-    @apply px-6 py-3 bg-white text-violet-600 font-medium rounded-xl;
+    @apply px-6 py-3 bg-slate-50 text-violet-600 font-medium rounded-xl;
     @apply border-2 border-violet-200 hover:border-violet-400 hover:bg-violet-50;
     @apply transition-all duration-200;
   }
 
   /* Card styles */
   .card {
-    @apply bg-white rounded-2xl border border-slate-100;
+    @apply bg-slate-50 rounded-2xl border border-slate-200;
     @apply shadow-sm hover:shadow-lg transition-shadow duration-300;
   }
 
   .card-elevated {
-    @apply bg-white rounded-2xl;
+    @apply bg-slate-50 rounded-2xl;
     @apply shadow-md hover:shadow-xl hover:-translate-y-1;
     @apply transition-all duration-300 ease-out;
   }
 
   /* Input styles */
   .input {
-    @apply w-full px-4 py-3 bg-white border border-slate-200 rounded-xl;
+    @apply w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl;
     @apply text-slate-900 placeholder-slate-400;
     @apply focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent;
     @apply transition-all duration-200;

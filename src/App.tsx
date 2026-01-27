@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { Layout } from './components/common/Layout';
 import { ProtectedRoute } from './components/common/ProtectedRoute';
 import { Login } from './pages/Login';
+import { Register } from './pages/Register';
 import { AdminDashboard } from './pages/Dashboard/AdminDashboard';
 import { TeacherDashboard } from './pages/Dashboard/TeacherDashboard';
 import { StudentDashboard } from './pages/Dashboard/StudentDashboard';
@@ -37,6 +38,7 @@ function App() {
         <Routes>
           {/* Public route */}
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
           {/* Protected routes with layout */}
           <Route
@@ -65,4 +67,5 @@ function App() {
 }
 
 export default App;
+
 

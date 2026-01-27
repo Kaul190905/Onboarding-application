@@ -45,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({ title }) => {
     };
 
     return (
-        <header className="sticky top-0 z-30 bg-white border-b border-slate-100">
+        <header className="sticky top-0 z-30 bg-slate-50 border-b border-slate-100">
             <div className="flex items-center justify-between h-16 px-4 lg:px-8">
                 {/* Page Title */}
                 <div className="flex items-center gap-4">
@@ -81,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ title }) => {
 
                         {/* Dropdown Menu */}
                         {isDropdownOpen && (
-                            <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-slate-100 py-2 animate-in">
+                            <div className="absolute right-0 mt-2 w-56 bg-slate-50 rounded-xl shadow-lg border border-slate-100 py-2 animate-in">
                                 <div className="px-4 py-3 border-b border-slate-100">
                                     <p className="text-sm font-medium text-slate-900">{user?.name}</p>
                                     <p className="text-xs text-slate-500">{user?.email}</p>
@@ -113,4 +113,5 @@ export const Navbar: React.FC<NavbarProps> = ({ title }) => {
         </header>
     );
 };
+
 

@@ -25,7 +25,7 @@ export const Students = () => {
     return (
         <div className="space-y-6">
             {/* Header */}
-            <div className="bg-white rounded-2xl border border-slate-100 p-6">
+            <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6">
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                     <div>
                         <h2 className="text-lg font-bold text-slate-900 mb-2">Student Performance</h2>
@@ -59,7 +59,7 @@ export const Students = () => {
                     return (
                         <div
                             key={student.id}
-                            className="bg-white rounded-xl border border-slate-100 p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+                            className="bg-slate-50 rounded-xl border border-slate-100 p-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
                         >
                             {/* Header */}
                             <div className="flex items-center gap-3 mb-4">
@@ -123,7 +123,7 @@ export const Students = () => {
 
             {/* Empty state */}
             {myStudents.length === 0 && (
-                <div className="bg-white rounded-2xl border border-slate-100 p-12 text-center">
+                <div className="bg-slate-50 rounded-2xl border border-slate-100 p-12 text-center">
                     <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <GraduationCap className="w-8 h-8 text-slate-400" />
                     </div>
@@ -134,4 +134,5 @@ export const Students = () => {
         </div>
     );
 };
+
 
