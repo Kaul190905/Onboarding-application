@@ -1,0 +1,184 @@
+/* Import Inter font - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Tailwind CSS */
+@import "tailwindcss";
+
+/* Base styles - Violet/Purple theme from Gradeflow logo */
+@layer base {
+  html {
+    @apply antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-slate-900;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl lg:text-2xl;
+  }
+
+  p {
+    @apply text-base lg:text-lg leading-relaxed;
+  }
+}
+
+/* Component styles */
+@layer components {
+
+  /* Primary button - Violet theme */
+  .btn-primary {
+    @apply px-8 py-4 bg-violet-600 text-white font-semibold rounded-xl;
+    @apply hover:bg-violet-700 focus:ring-4 focus:ring-violet-200;
+    @apply transition-all duration-200 ease-in-out;
+    @apply shadow-sm hover:shadow-md;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-violet-600 font-medium rounded-xl;
+    @apply border-2 border-violet-200 hover:border-violet-400 hover:bg-violet-50;
+    @apply transition-all duration-200;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-2xl border border-slate-100;
+    @apply shadow-sm hover:shadow-lg transition-shadow duration-300;
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-2xl;
+    @apply shadow-md hover:shadow-xl hover:-translate-y-1;
+    @apply transition-all duration-300 ease-out;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-3 bg-white border border-slate-200 rounded-xl;
+    @apply text-slate-900 placeholder-slate-400;
+    @apply focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent;
+    @apply transition-all duration-200;
+  }
+
+  /* Section container */
+  .section {
+    @apply py-16 lg:py-24;
+  }
+
+  .container-main {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+
+  /* Text gradient - Violet */
+  .text-gradient {
+    @apply bg-gradient-to-r from-violet-600 to-purple-500 bg-clip-text text-transparent;
+  }
+
+  /* Violet accent border top */
+  .border-accent-top {
+    @apply border-t-4 border-violet-500;
+  }
+
+  /* Subtle hover lift */
+  .hover-lift {
+    @apply hover:-translate-y-1 hover:shadow-lg transition-all duration-300;
+  }
+
+  /* Focus ring */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2;
+  }
+
+  /* Animation utilities */
+  .animate-in {
+    animation: animate-in 0.3s ease-out;
+  }
+
+  @keyframes animate-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    animation: fade-in 0.2s ease-out;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Custom scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-slate-100 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full hover:bg-slate-400;
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
