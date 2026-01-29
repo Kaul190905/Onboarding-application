@@ -167,20 +167,6 @@ export const Login = () => {
                                 </>
                             )}
                         </button>
-
-                        {/* Registration Link */}
-                        <div className="text-center pt-2">
-                            <p className="text-slate-600">
-                                Don't have an account?{' '}
-                                <button
-                                    type="button"
-                                    onClick={() => navigate('/register')}
-                                    className="text-violet-600 font-semibold hover:text-violet-700 hover:underline transition-colors"
-                                >
-                                    Create new account
-                                </button>
-                            </p>
-                        </div>
                     </form>
 
                     {/* Demo credentials */}
