@@ -45,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({ title }) => {
     };
 
     return (
-        <header className="sticky top-0 z-30 bg-slate-50 border-b border-slate-100">
+        <header className="sticky top-0 z-30 bg-slate-50/80 backdrop-blur-md border-b border-slate-100/50 shadow-sm">
             <div className="flex items-center justify-between h-16 px-4 lg:px-8">
                 {/* Page Title */}
                 <div className="flex items-center gap-4">
@@ -56,32 +56,32 @@ export const Navbar: React.FC<NavbarProps> = ({ title }) => {
                 {/* Right Section */}
                 <div className="flex items-center gap-3">
                     {/* Notification Bell */}
-                    <button className="relative p-2.5 text-slate-500 hover:text-slate-700 hover:bg-slate-50 rounded-xl transition-colors">
+                    <button className="relative p-2.5 text-slate-500 hover:text-violet-600 hover:bg-violet-50 rounded-xl transition-all duration-200 hover:scale-105">
                         <Bell className="w-5 h-5" />
-                        <span className="absolute top-2 right-2 w-2 h-2 bg-violet-600 rounded-full"></span>
+                        <span className="absolute top-2 right-2 w-2 h-2 bg-violet-600 rounded-full animate-pulse"></span>
                     </button>
 
                     {/* User Dropdown */}
                     <div className="relative" ref={dropdownRef}>
                         <button
                             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                            className="flex items-center gap-3 p-1.5 pr-3 hover:bg-slate-50 rounded-xl transition-colors"
+                            className="flex items-center gap-3 p-1.5 pr-3 hover:bg-slate-100 rounded-xl transition-all duration-200 group"
                         >
                             <img
                                 src={user?.avatar}
                                 alt={user?.name}
-                                className="w-9 h-9 rounded-full ring-2 ring-slate-100"
+                                className="w-9 h-9 rounded-full ring-2 ring-slate-100 group-hover:ring-violet-200 transition-all duration-200"
                             />
                             <div className="hidden md:block text-left">
                                 <p className="text-sm font-medium text-slate-900">{user?.name}</p>
                                 <p className="text-xs text-slate-500 capitalize">{user?.role}</p>
                             </div>
-                            <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                            <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
                         </button>
 
                         {/* Dropdown Menu */}
                         {isDropdownOpen && (
-                            <div className="absolute right-0 mt-2 w-56 bg-slate-50 rounded-xl shadow-lg border border-slate-100 py-2 animate-in">
+                            <div className="absolute right-0 mt-2 w-56 bg-white/90 backdrop-blur-md rounded-xl shadow-xl shadow-slate-200/50 border border-slate-100/50 py-2 scale-in">
                                 <div className="px-4 py-3 border-b border-slate-100">
                                     <p className="text-sm font-medium text-slate-900">{user?.name}</p>
                                     <p className="text-xs text-slate-500">{user?.email}</p>

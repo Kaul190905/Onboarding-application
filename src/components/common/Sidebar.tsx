@@ -63,22 +63,22 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed })
             </div>
 
             {/* Navigation */}
-            <nav className="flex-1 py-6 px-3 space-y-1 overflow-y-auto">
+            <nav className="flex-1 py-6 px-3 space-y-1.5 overflow-y-auto scrollbar-thin">
                 {filteredMenuItems.map((item) => (
                     <NavLink
                         key={item.path}
                         to={item.path}
                         onClick={() => setIsMobileOpen(false)}
                         className={({ isActive }) =>
-                            `flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200
+                            `group flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-300
                             ${isActive
-                                ? 'bg-violet-50 text-violet-600 font-medium'
-                                : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                                ? 'bg-violet-100 text-violet-700 font-medium shadow-sm shadow-violet-500/10'
+                                : 'text-slate-600 hover:bg-violet-50 hover:text-violet-600'
                             }
                             ${isCollapsed ? 'justify-center' : ''}`
                         }
                     >
-                        <item.icon className="w-5 h-5 flex-shrink-0" />
+                        <item.icon className="w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
                         {!isCollapsed && <span className="text-sm">{item.label}</span>}
                     </NavLink>
                 ))}
@@ -87,11 +87,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed })
             {/* User section */}
             <div className="p-3 border-t border-slate-100">
                 {!isCollapsed && (
-                    <div className="flex items-center gap-3 p-3 mb-2 bg-slate-50 rounded-xl">
+                    <div className="flex items-center gap-3 p-3 mb-2 bg-gradient-to-r from-slate-50 to-violet-50/50 rounded-xl border border-slate-100/50">
                         <img
                             src={user.avatar}
                             alt={user.name}
-                            className="w-10 h-10 rounded-full ring-2 ring-white"
+                            className="w-10 h-10 rounded-full ring-2 ring-violet-100 shadow-sm"
                         />
                         <div className="flex-1 min-w-0">
                             <p className="text-sm font-medium text-slate-900 truncate">{user.name}</p>
