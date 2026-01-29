@@ -33,8 +33,8 @@ export const Register = () => {
 
     return (
         <div className="min-h-screen bg-slate-50 flex">
-            {/* Left side - Brand panel */}
-            <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-violet-600 via-violet-500 to-purple-500 p-12 flex-col justify-between">
+            {/* Left side - Brand panel (fixed) */}
+            <div className="hidden lg:flex lg:w-1/2 fixed inset-y-0 left-0 bg-gradient-to-br from-violet-600 via-violet-500 to-purple-500 p-12 flex-col justify-between">
                 <div>
                     <div className="flex items-center gap-3 mb-16">
                         <img
@@ -67,8 +67,8 @@ export const Register = () => {
                 </div>
             </div>
 
-            {/* Right side - Register form */}
-            <div className="flex-1 flex items-center justify-center p-6 lg:p-12">
+            {/* Right side - Register form (with left margin to account for fixed panel) */}
+            <div className="flex-1 flex items-center justify-center p-6 lg:p-12 lg:ml-[50%]">
                 <div className="w-full max-w-md">
                     {/* Mobile logo */}
                     <div className="lg:hidden flex items-center gap-3 mb-8">

@@ -21,11 +21,12 @@ interface SidebarProps {
 
 const menuItems = [
     { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, roles: ['admin', 'teacher', 'student'] },
-    { path: '/tasks', label: 'My Tasks', icon: ClipboardList, roles: ['admin', 'teacher', 'student'] },
     { path: '/all-tasks', label: 'All Tasks', icon: ClipboardList, roles: ['admin', 'teacher'] },
     { path: '/create-task', label: 'Create Task', icon: Plus, roles: ['admin', 'teacher'] },
     { path: '/onboarding-tree', label: 'Analytics', icon: BarChart3, roles: ['admin'] },
     { path: '/students', label: 'My Students', icon: Users, roles: ['teacher'] },
+    { path: '/team-members', label: 'Team Members', icon: Users, roles: ['student'] },
+    { path: '/my-teacher', label: 'My Teacher', icon: Users, roles: ['student'] },
 ];
 
 export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed }) => {
@@ -47,14 +48,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed })
             {/* Logo */}
             <div className={`flex items-center h-16 px-4 border-b border-slate-100 ${isCollapsed ? 'justify-center' : 'gap-3'}`}>
                 {isCollapsed ? (
-                    <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-bold text-lg">G</span>
-                    </div>
+                    <img
+                        src="/logo-icon.png"
+                        alt="Gradeflow"
+                        className="h-10 w-auto"
+                    />
                 ) : (
                     <img
                         src="/logo.png"
                         alt="Gradeflow"
-                        className="h-10 w-auto"
+                        className="h-20 w-auto"
                     />
                 )}
             </div>
@@ -137,7 +140,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, setIsCollapsed })
             {/* Sidebar */}
             <aside
                 className={`
-                    fixed lg:static inset-y-0 left-0 z-40
+                    fixed inset-y-0 left-0 z-40
                     flex flex-col bg-slate-50 border-r border-slate-100
                     transition-all duration-300 ease-out
                     ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}

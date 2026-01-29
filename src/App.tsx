@@ -12,6 +12,8 @@ import { TaskDetail } from './pages/Tasks/TaskDetail';
 import { CreateTask } from './pages/Tasks/CreateTask';
 import { OnboardingTree } from './pages/OnboardingTree';
 import { Students } from './pages/Students';
+import { TeamMembers } from './pages/TeamMembers';
+import { MyTeacher } from './pages/MyTeacher';
 
 // Dashboard router component that selects the right dashboard based on role
 const DashboardRouter = () => {
@@ -55,6 +57,8 @@ function App() {
             <Route path="/create-task" element={<CreateTask />} />
             <Route path="/onboarding-tree" element={<OnboardingTree />} />
             <Route path="/students" element={<Students />} />
+            <Route path="/team-members" element={<TeamMembers />} />
+            <Route path="/my-teacher" element={<MyTeacher />} />
           </Route>
 
           {/* Default redirect */}
