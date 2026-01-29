@@ -1,6 +1,6 @@
 import { useAuth } from '../contexts/AuthContext';
 import { getStudentsByTeacher, getTasksByStudent } from '../data/data';
-import { GraduationCap, CheckCircle2, Clock, Circle, TrendingUp, BarChart3, FileText } from 'lucide-react';
+import { GraduationCap, CheckCircle2, Clock, Circle } from 'lucide-react';
 
 export const Students = () => {
     const { user, tasks } = useAuth();
@@ -84,8 +84,8 @@ export const Students = () => {
                                 <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
                                     <div
                                         className={`h-full rounded-full transition-all duration-500 ${progress >= 80 ? 'bg-emerald-500' :
-                                                progress >= 50 ? 'bg-violet-500' :
-                                                    progress >= 25 ? 'bg-amber-500' : 'bg-slate-400'
+                                            progress >= 50 ? 'bg-violet-500' :
+                                                progress >= 25 ? 'bg-amber-500' : 'bg-slate-400'
                                             }`}
                                         style={{ width: `${progress}%` }}
                                     />

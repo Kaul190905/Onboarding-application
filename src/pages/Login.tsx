@@ -212,5 +212,3 @@ export const Login = () => {
         </div>
     );
 };
-
-

@@ -114,7 +114,7 @@ export const OnboardingTree = () => {
                                 <p className="text-xs text-slate-500">{completed}/{total} completed</p>
                             </div>
                             <span className={`text-sm font-semibold ${rate >= 75 ? 'text-emerald-600' :
-                                    rate >= 50 ? 'text-violet-600' : 'text-slate-600'
+                                rate >= 50 ? 'text-violet-600' : 'text-slate-600'
                                 }`}>
                                 {rate}%
                             </span>
@@ -150,4 +150,3 @@ export const OnboardingTree = () => {
         </div>
     );
 };
-

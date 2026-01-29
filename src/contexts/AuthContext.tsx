@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import type { ReactNode } from 'react';
 import type { User, Task } from '../types';
-import { users, initialTasks, authenticateUser } from '../data/data';
+import { initialTasks, authenticateUser } from '../data/data';
 
 interface AuthContextType {
     user: User | null;

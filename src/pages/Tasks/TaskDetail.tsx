@@ -9,8 +9,7 @@ import {
     Circle,
     Loader2,
     PlayCircle,
-    FileText,
-    User
+    FileText
 } from 'lucide-react';
 import type { TaskStatus } from '../../types';
 

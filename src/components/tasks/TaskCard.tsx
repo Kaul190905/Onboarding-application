@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import type { Task } from '../../types';
 import { useAuth } from '../../contexts/AuthContext';
 import { getUserById } from '../../data/data';
-import { Calendar, Clock, CheckCircle2, Circle, Loader2, PlayCircle, BookOpen } from 'lucide-react';
+import { Calendar, CheckCircle2, Circle, Loader2, PlayCircle } from 'lucide-react';
 
 interface TaskCardProps {
     task: Task;

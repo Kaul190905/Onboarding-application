@@ -6,7 +6,6 @@ import {
     CheckCircle2,
     Clock,
     Circle,
-    ArrowRight,
     BookOpen,
     Trophy
 } from 'lucide-react';

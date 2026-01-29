@@ -19,7 +19,6 @@ export const AdminDashboard = () => {
     const students = getAllStudents();
     const teachers = getAllTeachers();
     const completedTasks = tasks.filter(t => t.status === 'completed');
-    const pendingTasks = tasks.filter(t => t.status !== 'completed');
     const inProgressTasks = tasks.filter(t => t.status === 'in-progress');
 
     const stats = [

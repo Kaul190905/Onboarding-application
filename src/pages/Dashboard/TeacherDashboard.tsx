@@ -1,13 +1,11 @@
 import { useAuth } from '../../contexts/AuthContext';
-import { getStudentsByTeacher, getTasksByTeacher, getUserById } from '../../data/data';
+import { getStudentsByTeacher, getTasksByTeacher } from '../../data/data';
 import { TaskList } from '../../components/tasks/TaskList';
 import {
     Users,
     FileText,
     CheckCircle2,
     Clock,
-    ArrowRight,
-    TrendingUp,
     Plus
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
