@@ -12,6 +12,9 @@ import {
     ChevronRight,
     Menu,
     X,
+    UserPlus,
+    LifeBuoy,
+    Inbox,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -21,10 +24,13 @@ interface SidebarProps {
 
 const menuItems = [
     { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard, roles: ['admin', 'teacher', 'student'] },
+    { path: '/user-management', label: 'User Management', icon: UserPlus, roles: ['admin'] },
+    { path: '/support-tickets', label: 'Support Tickets', icon: Inbox, roles: ['admin'] },
     { path: '/all-tasks', label: 'All Tasks', icon: ClipboardList, roles: ['admin', 'teacher'] },
     { path: '/create-task', label: 'Create Task', icon: Plus, roles: ['admin', 'teacher'] },
     { path: '/onboarding-tree', label: 'Analytics', icon: BarChart3, roles: ['admin'] },
     { path: '/students', label: 'My Students', icon: Users, roles: ['teacher'] },
+    { path: '/raise-support', label: 'Raise Support', icon: LifeBuoy, roles: ['teacher', 'student'] },
     { path: '/team-members', label: 'Team Members', icon: Users, roles: ['student'] },
     { path: '/my-teacher', label: 'My Teacher', icon: Users, roles: ['student'] },
 ];

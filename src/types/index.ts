@@ -37,4 +37,29 @@ export interface Activity {
     timestamp: string;
 }
 
+// Support Ticket types
+export type TicketStatus = 'open' | 'in-progress' | 'resolved';
+export type TicketPriority = 'low' | 'medium' | 'high';
+
+export interface Attachment {
+    id: string;
+    name: string;
+    type: 'file' | 'link';
+    url: string;  // For files: base64 data URL, for links: external URL
+    mimeType?: string;
+}
+
+export interface SupportTicket {
+    id: string;
+    title: string;
+    description: string;
+    category: string;
+    priority: TicketPriority;
+    status: TicketStatus;
+    submittedBy: string;  // User ID
+    attachments: Attachment[];
+    createdAt: string;
+    updatedAt: string;
+    adminNotes?: string;
+}
 

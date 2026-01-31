@@ -214,4 +214,21 @@ export const getAllTeachers = (): User[] => {
     return users.filter(user => user.role === 'teacher');
 };
 
+// Generate unique user ID based on role
+export const generateUserId = (role: 'student' | 'teacher', existingUsers: User[]): string => {
+    const prefix = role === 'student' ? 'student-' : 'teacher-';
+    const existingIds = existingUsers
+        .filter(u => u.role === role)
+        .map(u => parseInt(u.id.replace(prefix, '')) || 0);
+    const nextId = existingIds.length > 0 ? Math.max(...existingIds) + 1 : 1;
+    return `${prefix}${nextId}`;
+};
+
+// Generate avatar URL from user name
+export const generateAvatarUrl = (name: string): string => {
+    const colors = ['3b82f6', '10b981', '8b5cf6', 'f59e0b', 'ec4899', '06b6d4', '84cc16', 'f97316', '14b8a6', 'a855f7', 'ef4444', '6366f1'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    const encodedName = encodeURIComponent(name.replace(/\s+/g, '+'));
+    return `https://ui-avatars.com/api/?name=${encodedName}&background=${randomColor}&color=fff`;
+};
 

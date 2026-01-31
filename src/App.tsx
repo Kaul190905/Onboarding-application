@@ -14,6 +14,9 @@ import { OnboardingTree } from './pages/OnboardingTree';
 import { Students } from './pages/Students';
 import { TeamMembers } from './pages/TeamMembers';
 import { MyTeacher } from './pages/MyTeacher';
+import { UserManagement } from './pages/UserManagement';
+import { RaiseSupport } from './pages/RaiseSupport';
+import { SupportTickets } from './pages/SupportTickets';
 
 // Dashboard router component that selects the right dashboard based on role
 const DashboardRouter = () => {
@@ -59,6 +62,9 @@ function App() {
             <Route path="/students" element={<Students />} />
             <Route path="/team-members" element={<TeamMembers />} />
             <Route path="/my-teacher" element={<MyTeacher />} />
+            <Route path="/user-management" element={<UserManagement />} />
+            <Route path="/raise-support" element={<RaiseSupport />} />
+            <Route path="/support-tickets" element={<SupportTickets />} />
           </Route>
 
           {/* Default redirect */}
