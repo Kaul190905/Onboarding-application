@@ -17,6 +17,7 @@ import { MyTeacher } from './pages/MyTeacher';
 import { UserManagement } from './pages/UserManagement';
 import { RaiseSupport } from './pages/RaiseSupport';
 import { SupportTickets } from './pages/SupportTickets';
+import { Polls } from './pages/Polls';
 
 // Dashboard router component that selects the right dashboard based on role
 const DashboardRouter = () => {
@@ -65,6 +66,7 @@ function App() {
             <Route path="/user-management" element={<UserManagement />} />
             <Route path="/raise-support" element={<RaiseSupport />} />
             <Route path="/support-tickets" element={<SupportTickets />} />
+            <Route path="/polls" element={<Polls />} />
           </Route>
 
           {/* Default redirect */}

@@ -15,6 +15,7 @@ import {
     UserPlus,
     LifeBuoy,
     Inbox,
+    Vote,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -31,6 +32,7 @@ const menuItems = [
     { path: '/onboarding-tree', label: 'Analytics', icon: BarChart3, roles: ['admin'] },
     { path: '/students', label: 'My Students', icon: Users, roles: ['teacher'] },
     { path: '/raise-support', label: 'Raise Support', icon: LifeBuoy, roles: ['teacher', 'student'] },
+    { path: '/polls', label: 'Polls', icon: Vote, roles: ['admin', 'teacher', 'student'] },
     { path: '/team-members', label: 'Team Members', icon: Users, roles: ['student'] },
     { path: '/my-teacher', label: 'My Teacher', icon: Users, roles: ['student'] },
 ];

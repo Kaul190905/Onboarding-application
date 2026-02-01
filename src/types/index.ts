@@ -63,3 +63,25 @@ export interface SupportTicket {
     adminNotes?: string;
 }
 
+// Poll types
+export type PollStatus = 'active' | 'closed';
+
+export interface PollOption {
+    id: string;
+    text: string;
+    votes: string[]; // Array of student IDs who voted
+}
+
+export interface Poll {
+    id: string;
+    title: string;
+    description: string;
+    options: PollOption[];
+    createdBy: string;      // Admin or Teacher ID
+    createdByRole: Role;    // 'admin' or 'teacher'
+    targetAudience: 'students' | 'students-and-staff';
+    status: PollStatus;
+    createdAt: string;
+    expiresAt?: string;     // Optional expiration
+}
+
