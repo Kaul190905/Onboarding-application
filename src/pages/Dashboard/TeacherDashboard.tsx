@@ -1,17 +1,19 @@
 import { useAuth } from '../../contexts/AuthContext';
 import { getStudentsByTeacher, getTasksByTeacher } from '../../data/data';
 import { TaskList } from '../../components/tasks/TaskList';
+import { PollCard } from '../../components/polls/PollCard';
 import {
     Users,
     FileText,
     CheckCircle2,
     Clock,
-    Plus
+    Plus,
+    Vote
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export const TeacherDashboard = () => {
-    const { user, tasks } = useAuth();
+    const { user, tasks, users, getPollsForUser } = useAuth();
     const navigate = useNavigate();
 
     if (!user) return null;
@@ -70,6 +72,49 @@ export const TeacherDashboard = () => {
                     </div>
                 ))}
             </div>
+
+            {/* Active Polls Section */}
+            {(() => {
+                const activePolls = getPollsForUser().filter(p => p.status === 'active');
+                const getCreatorName = (creatorId: string) => {
+                    const creator = users.find(u => u.id === creatorId);
+                    return creator?.name || 'Unknown';
+                };
+
+                if (activePolls.length > 0) {
+                    return (
+                        <div className="bg-slate-50 rounded-2xl border border-slate-100 p-6">
+                            <div className="flex items-center justify-between mb-6">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center">
+                                        <Vote className="w-5 h-5 text-violet-600" />
+                                    </div>
+                                    <div>
+                                        <h2 className="text-lg font-bold text-slate-900">Active Polls</h2>
+                                        <p className="text-sm text-slate-500">Polls you've created or from admin</p>
+                                    </div>
+                                </div>
+                                <button
+                                    onClick={() => navigate('/polls')}
+                                    className="text-sm text-violet-600 hover:text-violet-700 font-medium"
+                                >
+                                    Manage polls
+                                </button>
+                            </div>
+                            <div className="grid lg:grid-cols-2 gap-4">
+                                {activePolls.slice(0, 4).map(poll => (
+                                    <PollCard
+                                        key={poll.id}
+                                        poll={poll}
+                                        creatorName={getCreatorName(poll.createdBy)}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    );
+                }
+                return null;
+            })()}
 
             {/* Main Content Grid */}
             <div className="grid lg:grid-cols-3 gap-6">
