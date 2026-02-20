@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff, ArrowRight, User } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, ArrowRight, User, AlertCircle } from 'lucide-react';
+import { registerAPI } from '../services/authService';
+import { generateAvatarUrl } from '../data/data';
 
 export const Register = () => {
     const [formData, setFormData] = useState({
@@ -11,17 +13,25 @@ export const Register = () => {
     });
     const [showPassword, setShowPassword] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setError('');
         setIsLoading(true);
 
-        // Simulate registration
-        await new Promise(resolve => setTimeout(resolve, 1500));
-
-        setIsLoading(false);
-        navigate('/login');
+        try {
+            await registerAPI({
+                ...formData,
+                avatar: generateAvatarUrl(formData.name),
+            });
+            navigate('/login');
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Registration failed');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -85,6 +95,13 @@ export const Register = () => {
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-5">
+                        {/* Error message */}
+                        {error && (
+                            <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-100 rounded-xl text-red-600">
+                                <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                                <span className="text-sm">{error}</span>
+                            </div>
+                        )}
                         {/* Name field */}
                         <div>
                             <label className="block text-sm font-medium text-slate-700 mb-2">

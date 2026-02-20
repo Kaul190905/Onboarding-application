@@ -17,10 +17,7 @@ export const Login = () => {
         setError('');
         setIsLoading(true);
 
-        // Simulate a brief loading state
-        await new Promise(resolve => setTimeout(resolve, 500));
-
-        const result = login(email, password);
+        const result = await login(email, password);
 
         if (result.success) {
             navigate('/dashboard');
